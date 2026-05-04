@@ -16,7 +16,7 @@ public class MyHashTable<K, V> {
     }
 
     private HashNode<K, V>[] chainArray;
-    private int M = 11; // Размер по умолчанию
+    private int M = 11; 
     private int size;
 
     public MyHashTable() {
@@ -36,7 +36,6 @@ public class MyHashTable<K, V> {
         int index = hash(key);
         HashNode<K, V> head = chainArray[index];
 
-        // Проверка, существует ли ключ
         while (head != null) {
             if (head.key.equals(key)) {
                 head.value = value;
@@ -45,7 +44,6 @@ public class MyHashTable<K, V> {
             head = head.next;
         }
 
-        // Вставка в начало цепочки
         size++;
         head = chainArray[index];
         HashNode<K, V> newNode = new HashNode<>(key, value);
@@ -105,7 +103,6 @@ public class MyHashTable<K, V> {
         return null;
     }
 
-    // Для тестирования распределения в Part 1.2
     public void printBucketSizes() {
         for (int i = 0; i < M; i++) {
             int count = 0;
