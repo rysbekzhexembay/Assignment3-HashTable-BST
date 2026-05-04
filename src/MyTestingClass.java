@@ -22,8 +22,3 @@ class MyTestingClass {
     }
 }
 
-// Пример запуска
-// MyHashTable<MyTestingClass, String> table = new MyHashTable<>(100);
-// Random rand = new Random();
-// for(int i=0; i<10000; i++) table.put(new MyTestingClass(rand.nextInt(100000), "Name"+i), "Value"+i);
-// table.printBucketSizes();
