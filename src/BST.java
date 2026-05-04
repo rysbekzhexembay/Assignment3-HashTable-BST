@@ -36,7 +36,7 @@ public class BST<K extends Comparable<K>, V> implements Iterable<BST<K, V>.Node>
             if (cmp < 0) curr = curr.left;
             else if (cmp > 0) curr = curr.right;
             else {
-                curr.val = val; // обновление значения
+                curr.val = val; 
                 return;
             }
         }
@@ -57,7 +57,6 @@ public class BST<K extends Comparable<K>, V> implements Iterable<BST<K, V>.Node>
         return null;
     }
 
-    // Итеративное удаление — самая сложная часть без рекурсии
     public void delete(K key) {
         Node parent = null;
         Node curr = root;
@@ -70,7 +69,6 @@ public class BST<K extends Comparable<K>, V> implements Iterable<BST<K, V>.Node>
 
         if (curr == null) return;
 
-        // Случай 1 и 2: 0 или 1 потомок
         if (curr.left == null || curr.right == null) {
             Node newNode = (curr.left == null) ? curr.right : curr.left;
             if (parent == null) root = newNode;
@@ -78,7 +76,6 @@ public class BST<K extends Comparable<K>, V> implements Iterable<BST<K, V>.Node>
             else parent.right = newNode;
             size--;
         }
-        // Случай 3: 2 потомка
         else {
             Node successorParent = curr;
             Node successor = curr.right;
@@ -104,7 +101,6 @@ public class BST<K extends Comparable<K>, V> implements Iterable<BST<K, V>.Node>
         return new InOrderIterator(root);
     }
 
-    // Итератор для In-order обхода через стек
     private class InOrderIterator implements Iterator<Node> {
         private Stack<Node> stack = new Stack<>();
 
